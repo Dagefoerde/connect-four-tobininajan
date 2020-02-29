@@ -8,10 +8,10 @@ import tensorflow as tf
 w_init = tf.random_normal_initializer()
 w = tf.Variable(initial_value=w_init(shape=(42, 7), dtype='float32'), trainable=True)
 b_init = tf.zeros_initializer()
-b = tf.Variable(initial_value=b_init(shape=(42,), dtype='float32'), trainable=True)
+b = tf.Variable(initial_value=b_init(shape=(7,), dtype='float32'), trainable=True)
 
-bot1 = ConnectFourBotRandom()
-bot2 = ConnectFourBotNN(w, b)
+bot2 = ConnectFourBotRandom()
+bot1 = ConnectFourBotNN(w, b)
 
 numberiter = 100
 number_ga_configs = 50
@@ -41,7 +41,7 @@ for x in range (number_ga_configs):
         else:
             gamesundecided += 1
     if gamesundecided != numberiter:
-        results_log.append(np.array(np.array(bot1.w), (numberiter-gamesundecided)/gameswon))
+        results_log.append(np.array(np.array(bot1.NN.w), (numberiter-gamesundecided)/gameswon))
 maximum = results_log[0]
 
 for item in results_log:
