@@ -15,13 +15,3 @@ class Linear(layers.Layer):
 
     def call(self, inputs):
         return tf.matmul(inputs, self.w) + self.b
-
-#x = tf.ones((1,42))
-linear_layer = Linear(7,42)
-#y = linear_layer(x)
-#print(y)
-board = ConnectFourEnv()
-boardvalues = board.board.flatten()
-mytensor = tf.constant(boardvalues, dtype='float32')
-result = linear_layer([mytensor])
-print(result)
