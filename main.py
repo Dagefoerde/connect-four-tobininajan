@@ -2,8 +2,15 @@ from connect_four_bot.bot import ConnectFourBotRandom
 from connect_four_bot.bot import ConnectFourBotNN
 from connect_four_bot.envs import ConnectFourEnv
 
+import tensorflow as tf
+
+w_init = tf.random_normal_initializer()
+w = tf.Variable(initial_value=w_init(shape=(42, 7), dtype='float32'), trainable=True)
+b_init = tf.zeros_initializer()
+b = tf.Variable(initial_value=b_init(shape=(42,), dtype='float32'), trainable=True)
+
 bot1 = ConnectFourBotRandom()
-bot2 = ConnectFourBotNN()
+bot2 = ConnectFourBotNN(w, b)
 
 numberiter=150
 

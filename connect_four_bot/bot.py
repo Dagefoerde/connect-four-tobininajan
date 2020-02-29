@@ -28,9 +28,9 @@ class ConnectFourBotNN(gym.Env):
     Description:
         ConnectFour game bot
     """
-    def __init__(self):
+    def __init__(self, w, b):
         self.board = ConnectFourEnv()
-        self.NN = Linear()
+        self.NN = Linear(w, b)
 
     def nextMove(self):
         boardvalues = self.board.board.flatten()
