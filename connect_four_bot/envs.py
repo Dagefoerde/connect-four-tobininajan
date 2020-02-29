@@ -2,8 +2,6 @@ from typing import Tuple, Optional
 
 import gym
 import numpy as np
-import tensorflow
-
 
 class ConnectFourEnv(gym.Env):
     """
