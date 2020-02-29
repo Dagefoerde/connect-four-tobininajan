@@ -41,14 +41,18 @@ for x in range (number_ga_configs):
         else:
             gamesundecided += 1
     if gamesundecided != numberiter:
-        results_log.append(np.array(np.array(bot1.NN.w), (numberiter-gamesundecided)/gameswon))
+        results_log.append(np.array(
+            np.array(bot1.NN.w),
+            np.array(bot1.NN.b),
+            gameswon/(numberiter-gamesundecided)))
 maximum = results_log[0]
 
 for item in results_log:
-    if item[1] > maximum[1]:
+    if item[2] > maximum[2]:
         maximum = item
 
 np.savetxt('result.out', results_log[0], delimiter=',')
+np.savetxt('maximum.out', maximum, delimiter=',')
 #f = open("example.txt", "w")
 #f.write(repr(results_log[0]) + "\n")
 #f.close()
