@@ -1,7 +1,7 @@
 import gym
 import tensorflow as tf
 from random import shuffle
-from numpy import argmax
+from numpy import argsort
 
 from connect_four_bot.envs import ConnectFourEnv
 from connect_four_bot.linearmodel import Linear
@@ -36,7 +36,10 @@ class ConnectFourBotNN(gym.Env):
         boardvalues = self.board.board.flatten()
         mytensor = tf.constant(boardvalues, dtype='float32')
         x = self.NN([mytensor])
-        return argmax(x)
+        available_moves = self.board.available_moves()
+        for i in reversed(argsort(x)):
+            if i in available_moves:
+                return i
 
     def inform(self, action):
         self.board.step(action)
