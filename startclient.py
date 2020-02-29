@@ -14,11 +14,11 @@ USERNAME = "NumpyNN0.1"
 UDP_IP = "192.168.1.136"
 UDP_PORT = 4446
 
-w = np.random.rand(42,7)
-b = np.random.rand(7)
-
-bot2 = ConnectFourBotNN(w, b)
-bot = ConnectFourBotNN(w, b)
+maximumconf1 = np.loadtxt('maximum1.out', delimiter=',')
+maximumconf2 = np.loadtxt('maximum2.out', delimiter=',')
+w2 = maximumconf1
+b2 = maximumconf2
+bot = ConnectFourBotNN(w2, b2)
 
 player = TobiNinaJanPlayer(bot)
 
