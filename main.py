@@ -13,3 +13,7 @@ while not(board.is_win_state()):
        board.step(move)
        bot1.inform(move)
        bot2.inform(move)
+    if len(board.available_moves()) == 0:
+        break
+print(board.board)
+
