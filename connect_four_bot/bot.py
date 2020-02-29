@@ -23,6 +23,9 @@ class ConnectFourBotRandom(gym.Env):
     def inform(self, action):
         self.board.step(action)
 
+    def reset(self):
+        self.board = ConnectFourEnv()
+
 class ConnectFourBotNN(gym.Env):
     """
     Description:
@@ -43,3 +46,6 @@ class ConnectFourBotNN(gym.Env):
 
     def inform(self, action):
         self.board.step(action)
+
+    def reset(self):
+        self.board = ConnectFourEnv()
