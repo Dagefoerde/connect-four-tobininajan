@@ -6,7 +6,7 @@ from connect_four_bot.envs import ConnectFourEnv
 
 class Linear(layers.Layer):
 
-    def __init__(self, units=32, input_dim=32):
+    def __init__(self, units=7, input_dim=42):
         super(Linear, self).__init__()
         w_init = tf.random_normal_initializer()
         self.w = tf.Variable(initial_value=w_init(shape=(input_dim, units), dtype='float32'), trainable=True)

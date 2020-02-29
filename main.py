@@ -10,7 +10,7 @@ numberiter=150
 gameswon = 0
 gamesundecided = 0
 
-for x in numberiter:
+for x in range(numberiter):
     board = ConnectFourEnv()
     current_player = 1
     while not(board.is_win_state()):
