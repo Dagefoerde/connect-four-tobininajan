@@ -1,8 +1,9 @@
-from connect_four_bot.bot import ConnectFourBot
+from connect_four_bot.bot import ConnectFourBotRandom
+from connect_four_bot.bot import ConnectFourBotNN
 from connect_four_bot.envs import ConnectFourEnv
 
-bot1 = ConnectFourBot()
-bot2 = ConnectFourBot()
+bot1 = ConnectFourBotRandom()
+bot2 = ConnectFourBotNN()
 
 board = ConnectFourEnv()
 current_player = 1
