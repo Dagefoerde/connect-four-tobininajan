@@ -41,8 +41,10 @@ class ConnectFourBotNN(gym.Env):
         x = self.NN([mytensor])
         available_moves = self.board.available_moves()
         for i in reversed(argsort(x)):
-            if i in available_moves:
-                return i
+            for j in i:
+                for s in available_moves:
+                    if j == s:
+                        return j
 
     def inform(self, action):
         self.board.step(action)
