@@ -1,5 +1,5 @@
 import gym
-import tensorflow as tf
+#import tensorflow as tf
 from random import shuffle
 from numpy import argsort
 
@@ -37,14 +37,14 @@ class ConnectFourBotNN(gym.Env):
 
     def nextMove(self):
         boardvalues = self.board.board.flatten()
-        mytensor = tf.constant(boardvalues, dtype='float32')
-        x = self.NN([mytensor])
+        #mytensor = tf.constant(boardvalues, dtype='float32')
+        x = self.NN.call(boardvalues)
         available_moves = self.board.available_moves()
-        for i in reversed(argsort(x)):
-            for j in i:
-                for s in available_moves:
-                    if j == s:
-                        return j
+        rev = argsort(x)
+        for i in rev:
+            for s in available_moves:
+                if i == s:
+                    return s
 
     def inform(self, action):
         self.board.step(action)
