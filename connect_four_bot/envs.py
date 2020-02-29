@@ -50,11 +50,6 @@ class ConnectFourEnv(gym.Env):
         )
 
     def step(self, action: int) -> Tuple[np.ndarray, float, bool, dict]:
-        # check input
-        if not self.is_valid_action(action):
-            raise Exception(
-                "Unable to determine a valid move! Maybe invoke at the wrong time?"
-            )
         # perform action
         for index in list(reversed(range(self.board_shape[0]))):
             if self.__board[index][action] == 0:
